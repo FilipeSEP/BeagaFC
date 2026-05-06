@@ -42,66 +42,69 @@
 
         header {
             text-align: center;
-            padding: 40px 20px 20px;
+            padding: 25px 20px 20px;
         }
 
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 10px;
             flex-wrap: wrap;
         }
 
+        /* LOGO - agora menor e mais harmônica */
         .logo-img {
-            max-width: 200px;
+            max-width: 100px;
             height: auto;
-            filter: drop-shadow(0 0 15px rgba(155, 77, 255, 0.5));
+            filter: drop-shadow(0 0 8px rgba(155, 77, 255, 0.4));
         }
 
+        /* Versão texto da logo (fallback) */
         .logo-simbolo {
             background: linear-gradient(135deg, #9b4dff, #6a1b9a);
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
+            font-size: 28px;
             font-weight: 800;
             color: #fff;
             transform: rotate(5deg);
-            box-shadow: 0 0 20px rgba(155, 77, 255, 0.5);
+            box-shadow: 0 0 15px rgba(155, 77, 255, 0.4);
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             letter-spacing: 3px;
             background: linear-gradient(135deg, #fff, #9b4dff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 30px rgba(155, 77, 255, 0.3);
+            text-shadow: 0 0 25px rgba(155, 77, 255, 0.3);
+            margin-top: 5px;
         }
 
         .subtitle {
             color: #ccc;
-            margin-top: 10px;
-            font-size: 1.1rem;
+            margin-top: 8px;
+            font-size: 1rem;
         }
 
         .players-section {
             max-width: 1200px;
-            margin: 50px auto;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
         h2 {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2rem;
+            font-size: 1.8rem;
             border-left: 5px solid #9b4dff;
             padding-left: 20px;
             max-width: fit-content;
@@ -113,7 +116,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .player-card {
@@ -145,15 +148,15 @@
         }
 
         .player-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: rgba(155, 77, 255, 0.5);
-            box-shadow: 0 10px 30px rgba(155, 77, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(155, 77, 255, 0.15);
         }
 
         .player-card.active {
             border: 2px solid #9b4dff;
             background: rgba(155, 77, 255, 0.1);
-            box-shadow: 0 0 20px rgba(155, 77, 255, 0.3);
+            box-shadow: 0 0 15px rgba(155, 77, 255, 0.25);
         }
 
         .player-card img {
@@ -180,43 +183,43 @@
         }
 
         .player-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
         }
 
         .player-card p {
             color: #9b4dff;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .highlight-area {
             max-width: 900px;
             margin: 30px auto;
             background: linear-gradient(135deg, #0f0a1a, #1a0f2e);
-            border-radius: 30px;
-            padding: 30px;
+            border-radius: 25px;
+            padding: 25px;
             border: 1px solid #9b4dff;
             transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(155, 77, 255, 0.1);
+            box-shadow: 0 0 15px rgba(155, 77, 255, 0.1);
         }
 
         .player-detail {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
         }
 
         .detail-photo {
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
             text-align: center;
         }
 
         .detail-photo img {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #9b4dff;
@@ -224,15 +227,15 @@
         }
 
         .detail-photo .placeholder-photo {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             background: linear-gradient(135deg, #2a1a4a, #1a0a2e);
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 70px;
+            font-size: 60px;
             border: 4px solid #9b4dff;
         }
 
@@ -241,51 +244,52 @@
         }
 
         .detail-info h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 5px;
         }
 
         .detail-pos {
             color: #9b4dff;
             font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-size: 1rem;
         }
 
         .detail-bio {
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.5;
+            margin-bottom: 18px;
             color: #ddd;
+            font-size: 0.95rem;
         }
 
         .highlight-link {
             display: inline-block;
             background: linear-gradient(135deg, #9b4dff, #6a1b9a);
             color: #fff;
-            padding: 10px 20px;
+            padding: 8px 18px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            margin-top: 10px;
+            margin-top: 8px;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .highlight-link:hover {
             background: linear-gradient(135deg, #b060ff, #7b2fbf);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(155, 77, 255, 0.5);
+            transform: scale(1.03);
+            box-shadow: 0 0 12px rgba(155, 77, 255, 0.4);
         }
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             border-top: 1px solid #9b4dff33;
-            margin-top: 50px;
+            margin-top: 40px;
             color: #888;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
         /* Modal do vídeo */
@@ -321,10 +325,11 @@
             background: #ff3131;
             color: white;
             border: none;
-            padding: 8px 15px;
-            border-radius: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 0.85rem;
         }
 
         .close-modal:hover {
@@ -334,30 +339,30 @@
         .video-container iframe,
         .video-container video {
             width: 100%;
-            border-radius: 15px;
+            border-radius: 12px;
         }
 
         .video-container video {
-            max-height: 500px;
+            max-height: 450px;
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2.2rem; }
             .player-detail { flex-direction: column; text-align: center; }
             .detail-info { text-align: center; }
             .modal-content { width: 95%; }
+            .logo-img { max-width: 75px; }
         }
     </style>
 </head>
 <body>
     <div class="ea-bar">
-        <span class="ea-logo">EA SPORTS</span>
         <span class="ea-sports-text">PRO CLUBS</span>
     </div>
 
     <header>
         <div class="logo-container">
-            <img src="https://filipesep.github.io/BeagaFC/img/beaga.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="https://filipesep.github.io/BeagaFC/img/beaga.jpg" class="logo-img" alt="BEAGA FC Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="logo-simbolo" style="display: none;">BFC</div>
         </div>
         <h1>BEAGA FC</h1>
@@ -396,6 +401,7 @@
                 photoUrl: "https://filipesep.github.io/BeagaFC/img/sab.jpg",
                 videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_FILIPE",
                 videoTipo: "youtube",
+                placeholderIcon: "⚽"
             },
             {
                 id: 1,
@@ -404,7 +410,8 @@
                 bio: "Cérebro do time. Visão de jogo apurada e passes milimétricos. Responsável por ditar o ritmo das partidas e equilibrar o ataque e a defesa.",
                 photoUrl: "https://filipesep.github.io/BeagaFC/img/par.jpg",
                 videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_2",
-                videoTipo: "youtube"
+                videoTipo: "youtube",
+                placeholderIcon: "🎯"
             },
             {
                 id: 2,
@@ -413,7 +420,8 @@
                 bio: "Artilheiro nato. Sempre no lugar certo na hora certa. Goleador do time, conhecido por suas finalizações precisas e frieza na frente do gol.",
                 photoUrl: "https://filipesep.github.io/BeagaFC/img/mar.jpg",
                 videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_3",
-                videoTipo: "youtube"        
+                videoTipo: "youtube",
+                placeholderIcon: "⚽"
             },
             {
                 id: 3,
@@ -422,7 +430,8 @@
                 bio: "Horrivel, normalmente mais atrapalha do que ajuda, mas tá sempre na resenha. Se toda partida fosse de acesso, ele seria um Deus!",
                 photoUrl: "https://filipesep.github.io/BeagaFC/img/gau.jpg",
                 videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_4",
-                videoTipo: "youtube"
+                videoTipo: "youtube",
+                placeholderIcon: "😅"
             }
         ];
 
@@ -451,7 +460,6 @@
             if (!player.videoUrl || player.videoUrl === "" || player.videoUrl.includes("SEU_LANCE")) {
                 videoContainer.innerHTML = '<p style="color:#888; text-align:center; padding: 50px;">🎬 Nenhum lance cadastrado ainda. Configure o videoUrl!</p>';
             } else if (player.videoTipo === "youtube") {
-                // Converte URL do YouTube para embed
                 let embedUrl = player.videoUrl;
                 if (embedUrl.includes("watch?v=")) {
                     embedUrl = embedUrl.replace("watch?v=", "embed/");
@@ -469,7 +477,6 @@
                         allowfullscreen>
                     </iframe>`;
             } else {
-                // Vídeo local
                 videoContainer.innerHTML = `
                     <video width="100%" controls autoplay style="border-radius: 15px;">
                         <source src="${player.videoUrl}" type="video/mp4">
@@ -532,18 +539,6 @@
 
         renderCards();
         renderHighlight();
-
-        // Logo fallback
-        const logoImg = document.querySelector('.logo-img');
-        const logoSymbol = document.querySelector('.logo-simbolo');
-        if (logoImg.complete && logoImg.naturalWidth === 0) {
-            logoImg.style.display = 'none';
-            logoSymbol.style.display = 'flex';
-        }
-        logoImg.onerror = function() {
-            logoImg.style.display = 'none';
-            logoSymbol.style.display = 'flex';
-        };
     </script>
 </body>
 </html>
