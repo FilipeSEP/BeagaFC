@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEAGA FC - Pro Clubs Team</title>
+    <title>BEAGA FC - Elite Pro Clubs</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Rajdhani:wght@500;600;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #050505;
+
+            /* Cores ICON */
+            --icon-bg: #eceae5;
+            --icon-gold: #9d8048;
+            --icon-text: #3d3a33;
+
+            /* Cores BRONZE */
+            --bronze-bg: #bd7d4a;
+            --bronze-dark: #5c3516;
+            --bronze-text: #2b1505;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,279 +30,375 @@
         }
 
         body {
-            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 100%);
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #151310 0%, #050505 70%);
             color: #fff;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
+        /* Barra Topo */
         .ea-bar {
             background: #000;
-            padding: 8px 20px;
+            padding: 10px 40px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #9b4dff;
-            font-size: 12px;
-            letter-spacing: 1px;
-            font-weight: 600;
+            border-bottom: 1px solid var(--icon-gold);
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
         }
 
         .ea-sports-text {
-            color: #9b4dff;
+            color: var(--icon-gold);
+            font-weight: 700;
         }
 
-        header {
-            text-align: center;
-            padding: 30px 20px 20px;
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-
-        /* LOGO - MEIO TERMO: 155px */
-        .logo-img {
-            max-width: 180px;
-            height: auto;
-            filter: drop-shadow(0 0 12px rgba(155, 77, 255, 0.5));
-        }
-
-        .logo-simbolo {
-            background: linear-gradient(135deg, #9b4dff, #6a1b9a);
-            width: 65px;
-            height: 65px;
-            border-radius: 18px;
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 40px auto;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 800;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 10px;
             color: #fff;
-            transform: rotate(5deg);
-            box-shadow: 0 0 18px rgba(155, 77, 255, 0.5);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            background: linear-gradient(135deg, #fff, #9b4dff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 25px rgba(155, 77, 255, 0.3);
-            margin-top: 5px;
+            text-shadow: 0 5px 15px rgba(157, 128, 72, 0.4);
         }
 
         .subtitle {
-            color: #ccc;
-            margin-top: 5px;
-            font-size: 0.9rem;
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--icon-gold);
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            border-left: 3px solid var(--icon-gold);
+            padding-left: 15px;
         }
 
+        .logo-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid var(--icon-gold);
+            box-shadow: 0 0 40px rgba(157, 128, 72, 0.2);
+            object-fit: cover;
+        }
+
+        /* Container Principal */
         .players-section {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            padding: 0 40px 60px;
         }
 
         h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            border-left: 5px solid #9b4dff;
-            padding-left: 20px;
-            max-width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
             margin-bottom: 40px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
         }
 
-        .player-card {
-            background: rgba(20, 15, 35, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 25px 15px;
-            text-align: center;
+        /* =============== SISTEMA DE CARTAS FUT =============== */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .fut-card {
+            width: 220px;
+            height: 330px;
+            position: relative;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 1px solid rgba(155, 77, 255, 0.2);
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            /* Corte no estilo escudo da EA */
+            clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 100%, 0 100%, 0 10%);
+            padding: 15px 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
         }
 
-        .player-card::before {
+        .fut-card:hover {
+            transform: translateY(-10px);
+            z-index: 10;
+        }
+
+        .fut-card.active {
+            transform: translateY(-5px) scale(1.03);
+            /* Sombra por fora do clip-path precisa ser aplicada no parent, mas simulamos aqui */
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+        }
+
+        /* --- TEMA ICON --- */
+        .theme-icon {
+            background: linear-gradient(145deg, #ffffff 0%, #e8e8e8 40%, #cfcdca 100%);
+            color: var(--icon-text);
+            border-top: 2px solid #fff;
+        }
+
+        /* Detalhe de textura da carta Icon */
+        .theme-icon::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #9b4dff, transparent);
-            transition: left 0.3s;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(157, 128, 72, 0.1), transparent 50%);
+            pointer-events: none;
         }
 
-        .player-card:hover::before {
-            left: 100%;
+        /* --- TEMA BRONZE --- */
+        .theme-bronze {
+            background: linear-gradient(145deg, #d8935c 0%, #a46132 50%, #703c1b 100%);
+            color: var(--bronze-text);
         }
 
-        .player-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(155, 77, 255, 0.5);
-            box-shadow: 0 10px 25px rgba(155, 77, 255, 0.15);
+        /* Textura radiante da carta bronze */
+        .theme-bronze::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 255, 255, 0.03) 15px, rgba(255, 255, 255, 0.03) 30px);
+            pointer-events: none;
         }
 
-        .player-card.active {
-            border: 2px solid #9b4dff;
-            background: rgba(155, 77, 255, 0.1);
-            box-shadow: 0 0 15px rgba(155, 77, 255, 0.25);
-        }
-
-        .player-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #9b4dff;
-            margin-bottom: 15px;
-            background: #2a1a4a;
-        }
-
-        .player-placeholder {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2a1a4a, #1a0a2e);
-            margin: 0 auto 15px;
+        /* Estrutura Interna da Carta */
+        .fut-top {
             display: flex;
+            height: 150px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .fut-rating-pos {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            padding-top: 10px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .fut-rating {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 0.9;
+        }
+
+        .theme-icon .fut-rating {
+            color: var(--icon-gold);
+        }
+
+        .theme-bronze .fut-rating {
+            color: var(--bronze-dark);
+        }
+
+        .fut-pos {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        .fut-pic {
+            width: 65%;
+            position: relative;
+            display: flex;
             justify-content: center;
-            font-size: 40px;
-            border: 3px solid #9b4dff;
+            align-items: flex-end;
         }
 
-        .player-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
+        .fut-pic img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            /* Suavização das bordas para disfarçar o JPG quadrado */
+            border-radius: 15px 15px 0 0;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+            position: relative;
+            bottom: -15px;
+            /* Empurra a foto para a linha divisória */
         }
 
-        .player-card p {
-            color: #9b4dff;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        .highlight-area {
-            max-width: 900px;
-            margin: 30px auto;
-            background: linear-gradient(135deg, #0f0a1a, #1a0f2e);
-            border-radius: 25px;
-            padding: 25px;
-            border: 1px solid #9b4dff;
-            transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(155, 77, 255, 0.1);
-        }
-
-        .player-detail {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .detail-photo {
-            flex: 1;
-            min-width: 180px;
+        .fut-bottom {
             text-align: center;
+            z-index: 2;
+            margin-top: 5px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 5px;
         }
 
-        .detail-photo img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #9b4dff;
-            background: #2a1a4a;
+        .theme-icon .fut-bottom {
+            border-top-color: rgba(157, 128, 72, 0.3);
         }
 
-        .detail-photo .placeholder-photo {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2a1a4a, #1a0a2e);
-            margin: 0 auto;
+        .theme-bronze .fut-bottom {
+            border-top-color: rgba(92, 53, 22, 0.3);
+        }
+
+        .fut-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .fut-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            font-family: 'Rajdhani', sans-serif;
+            padding: 0 5px;
+        }
+
+        .stat-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
-            border: 4px solid #9b4dff;
-        }
-
-        .detail-info {
-            flex: 2;
-        }
-
-        .detail-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .detail-pos {
-            color: #9b4dff;
-            font-weight: 600;
-            margin-bottom: 12px;
+            gap: 4px;
             font-size: 1rem;
         }
 
-        .detail-bio {
-            line-height: 1.5;
-            margin-bottom: 18px;
-            color: #ddd;
-            font-size: 0.95rem;
+        .stat-val {
+            font-weight: 700;
+        }
+
+        .stat-lbl {
+            font-weight: 500;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* =============== ÁREA DE DESTAQUE =============== */
+        .highlight-area {
+            background: #0f0f0f;
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid #222;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            /* RESOLUÇÃO DO OVERLAP: Gap maior e margens ajustadas */
+            gap: 60px;
+            margin-top: 20px;
+        }
+
+        /* Borda customizada dependendo do tema do jogador selecionado */
+        .highlight-area.theme-icon-border {
+            border-color: var(--icon-gold);
+        }
+
+        .highlight-area.theme-bronze-border {
+            border-color: var(--bronze-dark);
+        }
+
+        .hl-card-wrapper {
+            flex-shrink: 0;
+            /* Impede a carta de ser esmagada */
+            /* RESOLUÇÃO DO OVERLAP: Não usar scale pesado no CSS. */
+            transform: scale(1.1);
+            transform-origin: center center;
+        }
+
+        /* Desativa o clique e o hover na carta que está em destaque */
+        .hl-card-wrapper .fut-card {
+            pointer-events: none;
+            transform: none !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+        }
+
+        .hl-info {
+            flex: 1;
+            /* Espaço extra para evitar aproximação */
+            padding-left: 10px;
+        }
+
+        .hl-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .highlight-area.theme-icon-border .hl-info h3 {
+            color: var(--icon-bg);
+        }
+
+        .highlight-area.theme-bronze-border .hl-info h3 {
+            color: var(--bronze-bg);
+        }
+
+        .hl-info h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.3rem;
+            color: #888;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hl-bio {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 600px;
         }
 
         .highlight-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #9b4dff, #6a1b9a);
-            color: #fff;
-            padding: 8px 18px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin-top: 8px;
+            padding: 12px 35px;
             border: none;
+            border-radius: 5px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
             cursor: pointer;
-            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Botões seguindo o tema */
+        .highlight-area.theme-icon-border .highlight-link {
+            background: linear-gradient(135deg, #c5a059, #8c6e31);
+            color: #000;
+        }
+
+        .highlight-area.theme-bronze-border .highlight-link {
+            background: linear-gradient(135deg, var(--bronze-bg), var(--bronze-dark));
+            color: #fff;
         }
 
         .highlight-link:hover {
-            background: linear-gradient(135deg, #b060ff, #7b2fbf);
-            transform: scale(1.03);
-            box-shadow: 0 0 12px rgba(155, 77, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid #9b4dff33;
-            margin-top: 40px;
-            color: #888;
-            font-size: 0.75rem;
-        }
-
+        /* Modal */
         .video-modal {
             display: none;
             position: fixed;
@@ -292,91 +406,92 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
         }
 
         .modal-content {
-            width: 80%;
-            max-width: 900px;
-            background: #111;
-            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            background: #0a0a0a;
+            border: 1px solid #333;
             padding: 20px;
-            border: 2px solid #9b4dff;
+            border-radius: 10px;
         }
 
-        .modal-header {
-            text-align: right;
-            margin-bottom: 10px;
-        }
-
-        .close-modal {
-            background: #ff3131;
-            color: white;
+        .close-btn {
+            background: #ff3333;
+            color: #fff;
             border: none;
-            padding: 6px 12px;
-            border-radius: 8px;
+            border-radius: 5px;
+            padding: 8px 15px;
             cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
             font-weight: bold;
-            font-size: 0.85rem;
         }
 
-        .close-modal:hover {
-            background: #cc0000;
-        }
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
 
-        .video-container iframe,
-        .video-container video {
-            width: 100%;
-            border-radius: 12px;
-        }
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
 
-        .video-container video {
-            max-height: 450px;
-        }
+            .subtitle {
+                border: none;
+                padding: 0;
+            }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .player-detail { flex-direction: column; text-align: center; }
-            .detail-info { text-align: center; }
-            .modal-content { width: 95%; }
-            .logo-img { max-width: 160px; }
+            .highlight-area {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .hl-card-wrapper {
+                transform: scale(1);
+                margin-bottom: 10px;
+            }
+
+            .hl-info {
+                padding-left: 0;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="ea-bar">
-        <span class="ea-sports-text">PRO CLUBS</span>
+        <span>EA SPORTS FC 26</span>
+        <span class="ea-sports-text">PRO CLUBS ELITE DIVISION</span>
     </div>
 
-    <header>
-        <div class="logo-container">
-            <img src="https://filipesep.github.io/BeagaFC/img/beaga.jpg" class="logo-img" alt="BEAGA FC Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="logo-simbolo" style="display: none;">BFC</div>
+    <header class="hero">
+        <div class="hero-text">
+            <h1>BEAGA FC</h1>
+            <p class="subtitle">A Elite do Gramado Virtual</p>
         </div>
-        <h1>BEAGA FC</h1>
-        <p class="subtitle">💜 Pro Clubs Team 💜</p>
+        <img src="https://filipesep.github.io/BeagaFC/img/beaga.jpg" class="logo-img" alt="BEAGA FC">
     </header>
 
     <section class="players-section">
-        <h2>⭐ ELENCO PRINCIPAL</h2>
+        <h2>— Elenco Principal —</h2>
         <div class="cards-container" id="cardsContainer"></div>
         <div class="highlight-area" id="highlightArea"></div>
     </section>
 
-    <footer>
-        <p>BEAGA FC © 2026 - Pro Clubs | #BFCFamily 💜</p>
-    </footer>
-
     <div id="videoModal" class="video-modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <button class="close-modal" onclick="fecharModal()">✕ FECHAR</button>
+            <div style="text-align: right; padding-bottom: 15px;">
+                <button class="close-btn" onclick="fecharModal()">X FECHAR</button>
             </div>
-            <div id="videoContainer" class="video-container"></div>
+            <div id="videoContainer"></div>
         </div>
     </div>
 
@@ -386,116 +501,85 @@
                 id: 0,
                 name: "Filipe",
                 position: "Meia Armador",
-                bio: "Craque da equipe, lider de assistencias. Conhecido pelos dribles desconcertantes e gols de fora da área.",
-                photoUrl: "https://filipesep.github.io/BeagaFC/img/sab.jpg",
-                videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_FILIPE",
-                videoTipo: "youtube",
-                placeholderIcon: "⚽"
+                posCode: "CAM",
+                theme: "theme-icon",
+                rating: 99,
+                stats: { pac: 88, sho: 90, pas: 95, dri: 94, def: 55, phy: 78 },
+                bio: "Craque da equipe e líder de assistências. Conhecido pelos dribles desconcertantes e gols de fora da área que garantem a vitória.",
+                photoUrl: "https://filipesep.github.io/BeagaFC/img/sab.png",
+                videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_FILIPE"
             },
             {
                 id: 1,
-                name: "Elias, O Paraiba",
+                name: "Elias",
                 position: "Box-to-Box",
-                bio: "Cérebro do time. Visão de jogo apurada e passes milimétricos. Responsável por ditar o ritmo das partidas e equilibrar o ataque e a defesa.",
-                photoUrl: "https://filipesep.github.io/BeagaFC/img/par.jpg",
-                videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_2",
-                videoTipo: "youtube",
-                placeholderIcon: "🎯"
+                posCode: "CM",
+                theme: "theme-icon",
+                rating: 99,
+                stats: { pac: 85, sho: 82, pas: 92, dri: 88, def: 86, phy: 89 },
+                bio: "O motor do time. Visão de jogo apurada e passes milimétricos. Responsável por ditar o ritmo das partidas e equilibrar o ataque e a defesa.",
+                photoUrl: "https://filipesep.github.io/BeagaFC/img/par.png",
+                videoUrl: ""
             },
             {
                 id: 2,
                 name: "Marcelo",
-                position: "Nosso 9 matador",
+                position: "9 Matador",
+                posCode: "ST",
+                theme: "theme-icon",
+                rating: 99,
+                stats: { pac: 91, sho: 95, pas: 75, dri: 89, def: 40, phy: 85 },
                 bio: "Artilheiro nato. Sempre no lugar certo na hora certa. Goleador do time, conhecido por suas finalizações precisas e frieza na frente do gol.",
-                photoUrl: "https://filipesep.github.io/BeagaFC/img/mar.jpg",
-                videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_3",
-                videoTipo: "youtube",
-                placeholderIcon: "⚽"
+                photoUrl: "https://filipesep.github.io/BeagaFC/img/mar.png",
+                videoUrl: ""
             },
             {
                 id: 3,
                 name: "Gaucho",
-                position: "Meia esquerda",
-                bio: "Horrivel, normalmente mais atrapalha do que ajuda, mas tá sempre na resenha. Se toda partida fosse de acesso, ele seria o dono do BeagaFC !",
-                photoUrl: "https://filipesep.github.io/BeagaFC/img/gau.jpg",
-                videoUrl: "https://www.youtube.com/watch?v=SEU_LANCE_4",
-                videoTipo: "youtube",
-                placeholderIcon: "😅"
+                position: "Meia Esquerda",
+                posCode: "LM",
+                theme: "theme-bronze",
+                rating: 63,
+                stats: { pac: 99, sho: 0, pas: 47, dri: 50, def: 90, phy: 72 },
+                bio: "Normalmente mais atrapalha do que ajuda, mas é da resenha. Se toda partida fosse de acesso, ele seria o dono do BeagaFC!",
+                photoUrl: "https://filipesep.github.io/BeagaFC/img/gau.png",
+                videoUrl: ""
             }
         ];
 
         let activePlayerId = 0;
 
-        function getPhotoOrPlaceholder(player) {
-            if (player.photoUrl && player.photoUrl.trim() !== "") {
-                return `<img src="${player.photoUrl}" alt="${player.name}">`;
-            } else {
-                return `<div class="player-placeholder">${player.placeholderIcon}</div>`;
-            }
-        }
-
-        function getDetailPhoto(player) {
-            if (player.photoUrl && player.photoUrl.trim() !== "") {
-                return `<img src="${player.photoUrl}" alt="${player.name}">`;
-            } else {
-                return `<div class="placeholder-photo">${player.placeholderIcon}</div>`;
-            }
-        }
-
-        function abrirVideo(player) {
-            const modal = document.getElementById('videoModal');
-            const videoContainer = document.getElementById('videoContainer');
-            
-            if (!player.videoUrl || player.videoUrl === "" || player.videoUrl.includes("SEU_LANCE")) {
-                videoContainer.innerHTML = '<p style="color:#888; text-align:center; padding: 50px;">🎬 Nenhum lance cadastrado ainda. Configure o videoUrl!</p>';
-            } else if (player.videoTipo === "youtube") {
-                let embedUrl = player.videoUrl;
-                if (embedUrl.includes("watch?v=")) {
-                    embedUrl = embedUrl.replace("watch?v=", "embed/");
-                }
-                if (embedUrl.includes("youtu.be/")) {
-                    embedUrl = embedUrl.replace("youtu.be/", "www.youtube.com/embed/");
-                }
-                videoContainer.innerHTML = `
-                    <iframe 
-                        width="100%" 
-                        height="450" 
-                        src="${embedUrl}?autoplay=1" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>`;
-            } else {
-                videoContainer.innerHTML = `
-                    <video width="100%" controls autoplay style="border-radius: 15px;">
-                        <source src="${player.videoUrl}" type="video/mp4">
-                        Seu navegador não suporta vídeo.
-                    </video>`;
-            }
-            modal.style.display = "flex";
-        }
-
-        function fecharModal() {
-            document.getElementById('videoModal').style.display = "none";
-            document.getElementById('videoContainer').innerHTML = "";
+        function generateFutCardHTML(p, isActive) {
+            const activeClass = isActive ? 'active' : '';
+            return `
+                <div class="fut-card ${p.theme} ${activeClass}" data-id="${p.id}" onclick="setActivePlayer(${p.id})">
+                    <div class="fut-top">
+                        <div class="fut-rating-pos">
+                            <div class="fut-rating">${p.rating}</div>
+                            <div class="fut-pos">${p.posCode}</div>
+                        </div>
+                        <div class="fut-pic">
+                            <img src="${p.photoUrl}" onerror="this.src='https://via.placeholder.com/130/000/FFF?text=BFC'">
+                        </div>
+                    </div>
+                    <div class="fut-bottom">
+                        <div class="fut-name">${p.name}</div>
+                        <div class="fut-stats">
+                            <div class="stat-item"><span class="stat-val">${p.stats.pac}</span> <span class="stat-lbl">PAC</span></div>
+                            <div class="stat-item"><span class="stat-val">${p.stats.sho}</span> <span class="stat-lbl">SHO</span></div>
+                            <div class="stat-item"><span class="stat-val">${p.stats.pas}</span> <span class="stat-lbl">PAS</span></div>
+                            <div class="stat-item"><span class="stat-val">${p.stats.dri}</span> <span class="stat-lbl">DRI</span></div>
+                            <div class="stat-item"><span class="stat-val">${p.stats.def}</span> <span class="stat-lbl">DEF</span></div>
+                            <div class="stat-item"><span class="stat-val">${p.stats.phy}</span> <span class="stat-lbl">PHY</span></div>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
 
         function renderCards() {
             const container = document.getElementById('cardsContainer');
-            container.innerHTML = players.map(player => `
-                <div class="player-card ${activePlayerId === player.id ? 'active' : ''}" data-id="${player.id}">
-                    ${getPhotoOrPlaceholder(player)}
-                    <h3>${player.name}</h3>
-                    <p>${player.position}</p>
-                </div>
-            `).join('');
-
-            document.querySelectorAll('.player-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const id = parseInt(card.dataset.id);
-                    setActivePlayer(id);
-                });
-            });
+            container.innerHTML = players.map(p => generateFutCardHTML(p, activePlayerId === p.id)).join('');
         }
 
         function setActivePlayer(id) {
@@ -505,28 +589,46 @@
         }
 
         function renderHighlight() {
-            const player = players[activePlayerId];
-            const highlightDiv = document.getElementById('highlightArea');
-            
-            highlightDiv.innerHTML = `
-                <div class="player-detail">
-                    <div class="detail-photo">
-                        ${getDetailPhoto(player)}
-                    </div>
-                    <div class="detail-info">
-                        <h3>${player.name}</h3>
-                        <div class="detail-pos">${player.position}</div>
-                        <div class="detail-bio">${player.bio}</div>
-                        <button onclick="abrirVideo(players[${activePlayerId}])" class="highlight-link">
-                            🎬 VER LANCE ➔
-                        </button>
-                    </div>
+            const p = players[activePlayerId];
+            const area = document.getElementById('highlightArea');
+
+            // Troca a cor da borda da área de destaque baseado no tema
+            area.className = 'highlight-area ' + (p.theme === 'theme-icon' ? 'theme-icon-border' : 'theme-bronze-border');
+
+            area.innerHTML = `
+                <div class="hl-card-wrapper">
+                    ${generateFutCardHTML(p, false).replace('onclick="setActivePlayer', 'data-ignore="')}
+                </div>
+                <div class="hl-info">
+                    <h3>${p.name}</h3>
+                    <h4>${p.position}</h4>
+                    <p class="hl-bio">${p.bio}</p>
+                    <button onclick="abrirVideo(${p.id})" class="highlight-link">
+                        🎬 VER HIGHLIGHTS
+                    </button>
                 </div>
             `;
         }
 
-        renderCards();
-        renderHighlight();
+        function abrirVideo(id) {
+            const p = players.find(player => player.id === id);
+            const modal = document.getElementById('videoModal');
+            const container = document.getElementById('videoContainer');
+
+            if (!p.videoUrl || p.videoUrl.includes("SEU_LANCE")) {
+                container.innerHTML = '<p style="text-align:center; padding:50px; font-family: Rajdhani; font-size: 1.5rem; color: #fff;">Nenhum highlight gravado ainda. A diretoria está cobrando!</p>';
+            } else {
+                container.innerHTML = '<p style="text-align:center; color: #fff;">Carregando lance...</p>';
+            }
+            modal.style.display = 'flex';
+        }
+
+        function fecharModal() {
+            document.getElementById('videoModal').style.display = 'none';
+        }
+
+        setActivePlayer(0);
     </script>
 </body>
+
 </html>
